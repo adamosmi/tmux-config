@@ -19,8 +19,11 @@ This config is meant to work well with nvim inside of WezTerm.
 
 ### Installation (Linux)
 
-Copy the tmux configuration file to your home directory:
+1. Copy the tmux configuration file to your home directory:
 - ~/.tmux.conf
+
+2. Install the Tmux Plugin Manager (https://github.com/tmux-plugins/tpm)
+3. Run the install process using <prefix key>I
 
 ## Customization
 
