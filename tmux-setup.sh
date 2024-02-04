@@ -10,14 +10,14 @@ source ./.env
 set +a # stop automatically exporting
 
 # Remove existing connections
-rm ~/.local/share/db_ui/connections.json
+rm ~/.local/share/db_ui/connections.json > /dev/null 2>&1
 
 # Try to attach by default
 tmux a -t "${PROJECT_NAME} > /dev/null 2>&1"
 
 # If the prior process fails, setup new:
 if [ $? -ne 0 ]; then
-    tmux new-session -d -s "${PROJECT_NAME}"
+    tmux new-session -d -s "${PROJECT_NAME}" > /dev/null 2>&1
 
     # Window 1: Python IDE
     WINDOW_1_NAME="main"
@@ -70,5 +70,5 @@ if [ $? -ne 0 ]; then
     # Attach to session
     tmux select-window -t "${PROJECT_NAME}:${WINDOW_1_NAME}"
     tmux select-pane -t "${PROJECT_NAME}:${WINDOW_1_NAME}.0"
-    tmux attach -t "${PROJECT_NAME}"
+    tmux attach -t "${PROJECT_NAME}" > /dev/null 2>&1
 fi
