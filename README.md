@@ -25,6 +25,25 @@ This config is meant to work well with nvim inside of WezTerm.
 2. Install the Tmux Plugin Manager (https://github.com/tmux-plugins/tpm)
 3. Run the install process using <prefix key>I
 
+### Automatic Setup of Dev Environment
+Customize ./tmux-setup.sh to your liking. This default script is set up to run the following:
+* Python IDE Window
+* SQL IDE Window
+* GIT Window
+
+To attach to a running session with this configuration or start up a new session, run:
+```
+./tmux-setup.sh
+```
+
+To restart the session, run:
+```
+tmux kill-session -t dev-env && ./tmux-setup.sh
+```
+
+Please note that "dev-env" is the default session name.
+
+
 ## Customization
 
 This configuration can be customized to fit your needs. Modify the `.tmux.conf` file to suit your preferences. For detailed instructions on tmux commands and configuration, visit the [tmux GitHub page](https://github.com/tmux/tmux) or the [tmux man page](https://man7.org/linux/man-pages/man1/tmux.1.html).
