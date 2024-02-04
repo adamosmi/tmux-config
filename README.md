@@ -29,6 +29,8 @@ This config is meant to work well with nvim inside of WezTerm.
 Customize ./tmux-setup.sh to your liking. This default script is set up to run the following:
 * Python IDE Window
 * SQL IDE Window
+    - SQL credentials are read from .env file and added to the session through :DBUIAddConnection followed by :DBUIFindBuffer
+        - Added connections are stored by default at ~/.local/share/db_ui/connections.json
 * GIT Window
 
 To attach to a running session with this configuration or start up a new session, run:
