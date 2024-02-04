@@ -58,7 +58,9 @@ if [ $? -ne 0 ]; then
 
     # Window 3: Git Workflow
     WINDOW_3_NAME="git"
+    GH_USER_NAME="user"
     tmux new-window -t "${PROJECT_NAME}" -n "${WINDOW_3_NAME}"
+    gh auth switch -u "${GH_USER_NAME}"
     tmux send-keys -t "${PROJECT_NAME}:${WINDOW_3_NAME}" 'lazygit' C-m
 
     # Attach to session
