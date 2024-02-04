@@ -4,6 +4,11 @@
 #Project: 
 PROJECT_NAME="dev-env"
 
+# Source environment vars 
+set -a # automatically export all variables
+source ./.env
+set +a # stop automatically exporting
+
 # Try to attach by default
 tmux a -t "${PROJECT_NAME} > /dev/null 2>&1"
 
@@ -47,6 +52,7 @@ if [ $? -ne 0 ]; then
     TARGET_SQL_FILE_PATH="./src/file.sql"
     tmux new-window -t "${PROJECT_NAME}" -n "${WINDOW_2_NAME}"
     tmux send-keys -t "${PROJECT_NAME}:${WINDOW_2_NAME}" "nvim ${TARGET_SQL_FILE_PATH}" C-m
+    tmux send-keys -t "${PROJECT_NAME}:${WINDOW_2_NAME}" ':DBUIAddConnection' C-m "${DB_CONNECTION_STRING}" C-m C-m
     tmux send-keys -t "${PROJECT_NAME}:${WINDOW_2_NAME}" ':DBUIFindBuffer' C-m
 
 
