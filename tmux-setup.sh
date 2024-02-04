@@ -38,8 +38,7 @@ if [ $? -ne 0 ]; then
    
     # Create python3 repl window inside venv
     tmux send-keys -t "${PROJECT_NAME}:${WINDOW_1_NAME}.1" 'source bin/activate' C-m
-    tmux send-keys -t "${PROJECT_NAME}:${WINDOW_1_NAME}.1" 'clear' C-m
-    tmux send-keys -t "${PROJECT_NAME}:${WINDOW_1_NAME}.1" "${REPL_TARGET}" C-m
+    tmux send-keys -t "${PROJECT_NAME}:${WINDOW_1_NAME}.1" "clear && ${REPL_TARGET}" C-m
 
     # Create python3 execution window inside venv
     tmux select-pane -t "${PROJECT_NAME}:${WINDOW_1_NAME}.1"
